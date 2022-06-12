@@ -12,6 +12,7 @@ import { ProductModel } from './models/product.model';
 import axios, {Axios, AxiosResponse} from 'axios'
 import productsController from './controllers/products.controller';
 import { Error } from './models/error.model';
+import { UsersRoutes } from './routes/users.routes.config';
 
 
 const app: express.Application = express(); 
@@ -38,6 +39,7 @@ app.use(expressWinston.logger({
 // Add the routes for our Models to the router
 routes.push(new ProductsRoutes(app));
 routes.push(new StoreRoutes(app));
+routes.push(new UsersRoutes(app))
 
 // Spin up the logger
 
@@ -78,6 +80,7 @@ async function loadProductsFromDB(url:string) {
     } catch (error) {
         return `Data import from ${url} has failed : ${error}`
       }
+
   }
 
 
