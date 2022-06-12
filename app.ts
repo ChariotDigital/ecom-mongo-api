@@ -93,7 +93,7 @@ server.listen(port, async () => {
         debugLog(`Routes configured for ${route.getName()}`);
     });
     if(loadDatabaseFromOrigin){
-        const dataImportresponse = await loadProductsFromDB('https://my-json-server.typicode.com/convictional/engineering-interview-api/products')
+        const dataImportresponse = await loadProductsFromDB('')
         return dataImportresponse
     } 
 });
