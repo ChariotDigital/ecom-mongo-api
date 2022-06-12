@@ -1,3 +1,4 @@
+import { ImageModel } from "../models/image.model";
 import { VariantModel } from "../models/variant.model";
 export interface PutProductDto {
     id: string; 
@@ -5,5 +6,5 @@ export interface PutProductDto {
     vendor?: string;
     body_html?: string;
     variants?: Array<VariantModel>;
-    images?: number;
+    images?: Array<ImageModel>;
 }

@@ -77,7 +77,7 @@ class ProductsController {
             }
             product.variants = variantModels
             product.images = imageModels
-            log(await ProductsService.create(product));
+            log(await ProductsService.putById(product.id, product));
             
             res.status = 200 
             res.data = `Products Successfully imported!`
