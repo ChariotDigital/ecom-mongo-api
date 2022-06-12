@@ -42,14 +42,13 @@ class ProductsDAO {
     Product = mongooseService.getMongoose().model('{Prodcuts}', this.productSchema);
 
     async addProduct(productFields: CreateProductDto) {
-        const productId = shortid.generate();
         const product = new this.Product({
-        _id: productId,
+        _id: productFields.id? productFields.id : shortid.generate(),
         ...productFields,
         permissionFlags: 1,
     });
     await product.save();
-    return productId;
+    return product._id;
     }
 
     async getProducts(limit = 25, page = 0) {
